@@ -1,0 +1,19 @@
+{
+  "name": "want-js-plugin.pr",
+  "version": "1.0.0",
+  "description": "Plugin for want-js-helper which allows open pull-requests on Github.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/air-breathing/want-js-plugin.pr.git"
+  },
+  "author": "Nadezhda Grin <grin.nadezhda@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/air-breathing/want-js-plugin.pr/issues"
+  },
+  "homepage": "https://github.com/air-breathing/want-js-plugin.pr#readme"
+}

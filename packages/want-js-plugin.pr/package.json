@@ -1,6 +1,6 @@
 {
   "name": "want-js-plugin.pr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plugin for want-js-helper which allows open pull-requests on Github.com",
   "main": "index.js",
   "scripts": {

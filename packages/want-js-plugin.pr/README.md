@@ -39,7 +39,7 @@ For example:
 module.exports = {
     commandParams: {
         'my-command': {
-            // refefined option
+            // redefined options
             githubApiUrl: 'example.github.com',
             githubApiPath: '/api/some/path',
             githubApiOauthTokenName: 'SPECIAL_GITHUB_OAUTH_TOKEN'
@@ -71,7 +71,7 @@ module.exports = {
 ```
 
 This way is better then previous when you use other installation project in different projects.
-But you may create config fastly like previos in common project direcory.
+But you may create config fastly like previos in common project directory.
 The main disadvantage of this approach is lack of opportunity to share config with other.
 
-Plugin will detect all pull requests by branch name.
+Current plugin will detect all pull requests by branch name.

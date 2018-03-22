@@ -1,6 +1,6 @@
 {
   "name": "want-js-plugin.anysite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Universal plugin for want-js for different servises which can be opened as https://somesite/{orgName}/{repoName}",
   "main": "index.js",
   "scripts": {

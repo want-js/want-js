@@ -1,0 +1,19 @@
+{
+  "name": "want-js-plugin.anysite",
+  "version": "1.0.0",
+  "description": "Universal plugin for want-js for different servises which can be opened as https://somesite/{orgName}/{repoName}",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/air-breathing/want-js-plugin.anysite.git"
+  },
+  "author": "Nadezhda Grin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/air-breathing/want-js-plugin.anysite/issues"
+  },
+  "homepage": "https://github.com/air-breathing/want-js-plugin.anysite#readme"
+}

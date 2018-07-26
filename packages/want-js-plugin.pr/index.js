@@ -8,7 +8,12 @@ module.exports = async (data, GitApi) => {
         data.githubApiOauthTokenName
     );
     const pullNumbers = await gitApi.getPullRequestsNumbers();
-    return pullNumbers.map(function (elem) {
-        return `https://${githubParsedUrl.url}/${elem.owner}/${githubParsedUrl.repository}/pull/${elem.number}`;
-    });
+
+    if (pullNumbers.length) {
+        return pullNumbers.map(function (elem) {
+            return `https://${githubParsedUrl.url}/${elem.owner}/${githubParsedUrl.repository}/pull/${elem.number}`;
+        });
+    }
+
+    return `https://${githubParsedUrl.url}/${githubParsedUrl.organization}/${githubParsedUrl.repository}/compare/${branch}?expand=1`;
 };

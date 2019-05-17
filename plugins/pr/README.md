@@ -1,24 +1,24 @@
-# want-js-plugin.pr
-Plugin for want-js-helper which allows open pull-requests on Github.com
+# @want-js/plugin.pr
+Plugin for want-js which allows open pull-requests on Github.com
 
 ## Usage
 
-1) Install want-js-helper
+1) Install @want-js/cli
 
 ```bash
-$ npm install want-js-helper --global
+$ npm install @want-js/cli --global
 ```
 
 2) Install current plugin global
 
 ```bash
-$ npm install want-js-plugin.pr --global
+$ npm install @want-js/plugin.pr --global
 ```
 
 or in some project
 
 ```bash
-$ npm install want-js-plugin.pr --save-dev
+$ npm install @want-js/plugin.pr --save-dev
 ```
 
 3) If you use github.com, then simply enter:
@@ -54,7 +54,7 @@ Or you can create you own redefined plugin, where will `.want-js.config.js`.
 
 
 ```js
-const wantJSCfg = require('want-js-plugin.pr/.want-js.config');
+const wantJSCfg = require('@want-js/plugin.pr/.want-js.config');
 
 module.exports = {
     commandParams: {

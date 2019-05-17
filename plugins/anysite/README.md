@@ -1,4 +1,4 @@
-# want-js-plugin.anysite
+# @want-js/plugin.anysite
 Universal plugin for want-js for different servises which can be opened as https://somesite/{orgName}/{repoName}
 
 ## Usage
@@ -12,13 +12,13 @@ $ npm install want-js-helper --global
 2) Install current plugin global
 
 ```bash
-$ npm install want-js-plugin.anysite --global
+$ npm install @want-js/plugin.anysite --global
 ```
 
 or in some project
 
 ```bash
-$ npm install want-js-plugin.anysite --save-dev
+$ npm install @want-js/plugin.anysite --save-dev
 ```
 
 3) If you use github.com, then simply enter:
@@ -37,7 +37,7 @@ For example:
 
 ```js
 
-const wantJSCfg = require('want-js-plugin.anysite/.want-js.config');
+const wantJSCfg = require('@want-js/plugin.anysite/.want-js.config');
 
 module.exports = {
     commandParams: {

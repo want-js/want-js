@@ -1,7 +1,16 @@
 {
   "name": "want-js",
   "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "precommit": "npm run lint",
+    "test": "lerna run test"
+  },
   "devDependencies": {
-    "lerna": "^3.14.1"
+    "eslint": "5.16.0",
+    "eslint-config-xo": "0.26.0",
+    "husky": "2.3.0",
+    "lerna": "3.14.1"
   }
 }

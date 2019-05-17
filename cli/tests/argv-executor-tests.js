@@ -9,17 +9,17 @@ const config = {
     },
     commandParams: {
         a: {
-            executor: `user/a.js`,
+            executor: 'user/a.js',
             summary: 'Open a.',
             aliases: ['abba']
         },
         b: {
-            executor: `user/b.js`,
+            executor: 'user/b.js',
             summary: 'Open b.',
             aliases: ['bucket']
         },
         c: {
-            executor: `user/c.js`,
+            executor: 'user/c.js',
             summary: 'Open c.'
         }
     }
@@ -29,8 +29,10 @@ function getFunc(letter) {
     const func = () => {
         return `https://yandex.ru/${letter}`;
     };
+
     func['@runtimeGlobal'] = true;
     func['@noCallThru'] = true;
+
     return func;
 }
 
@@ -51,6 +53,7 @@ test('Check arg adding in properties', t => {
     });
 
     const argvExecutor = new ArgvExecutor(config);
+
     t.is(argvExecutor.command, 'a');
     t.falsy(argvExecutor.argv);
 });
@@ -60,6 +63,7 @@ test('Check lookup method', async t => {
     console.log = url => {
         t.is(url, 'https://yandex.ru/a');
     };
+
     const ArgvExecutor = proxyquire('../src/argv-executor', {
         'command-line-commands': getCommandLine({
             command: 'a'
@@ -79,11 +83,13 @@ test('Check lookup method', async t => {
 
 test('Check help', t => {
     const originalConsoleLog = console.log;
+
     console.log = help => {
         t.true(/a, abba/.test(help), 'Error with a');
         t.true(/b, bucket/.test(help), 'Error with b');
         t.true(/c/.test(help), 'Error with c');
     };
+
     const ArgvExecutor = proxyquire('../src/argv-executor', {
         'command-line-commands': getCommandLine({})
     });
@@ -95,12 +101,14 @@ test('Check help', t => {
 
 test('Check help', async t => {
     const originalConsoleLog = console.log;
+
     console.log = help => {
         t.true(/a, abba/.test(help), 'Error with a');
         t.true(/b, bucket/.test(help), 'Error with b');
         t.true(/c/.test(help), 'Error with c');
         console.log = originalConsoleLog;
     };
+
     const ArgvExecutor = proxyquire('../src/argv-executor', {
         'command-line-commands': getCommandLine({
             argv: ['-h']

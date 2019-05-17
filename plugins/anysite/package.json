@@ -3,9 +3,6 @@
   "version": "1.0.1",
   "description": "Universal plugin for want-js for different servises which can be opened as https://somesite/{orgName}/{repoName}",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/want-js/want-js.git"

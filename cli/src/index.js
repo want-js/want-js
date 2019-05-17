@@ -41,6 +41,7 @@ async function init() {
         } else {
             console.error('\x1b[31m', e);
         }
+
         if (executor && executor.printHelp) {
             executor.printHelp();
         }

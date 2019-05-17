@@ -35,7 +35,9 @@ class GitApi {
                 repository: parsedUrl[5]
             };
         }
+
         console.warn(`Func _parseRemote cannot parse url ${url}`);
+
         return {};
     }
 
@@ -48,13 +50,16 @@ class GitApi {
         const options = {
             host: this.githubUrl
         };
+
         if (this.pathPrefix) {
             options.pathPrefix = this.pathPrefix;
         }
+
         const authOptions = {
             type: 'token',
             token: process.env[this.envTokenName]
         };
+
         if (this.githubUrl === 'github.com') {
             delete options.pathPrefix;
             delete options.host;
@@ -75,6 +80,7 @@ class GitApi {
                     console.warn(`Remote ${githubParsedUrl.url} differs from choosen api ${this.githubUrl}`);
                     return resolve([]);
                 }
+
                 this.github.pullRequests.getAll({
                     state: 'all',
                     owner: githubParsedUrl.organization,

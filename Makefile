@@ -1,5 +1,5 @@
 install:
-	npm ci
+	npm ci || npm install
 	./node_modules/.bin/lerna bootstrap
 
 test:

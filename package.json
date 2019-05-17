@@ -4,7 +4,6 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "precommit": "npm run lint",
     "test": "lerna run test"
   },
   "devDependencies": {
@@ -12,5 +11,10 @@
     "eslint-config-xo": "0.26.0",
     "husky": "2.3.0",
     "lerna": "3.14.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }

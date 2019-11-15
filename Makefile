@@ -10,6 +10,7 @@ build: install test
 	./node_modules/.bin/lerna run build
 
 clean:
+	rm -rf node_modules
 	rm -rf cli/node_modules
 	rm -rf plugins/*/node_modules
 	rm -rf utils/*/node_modules

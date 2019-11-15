@@ -1,40 +1,52 @@
-import OctokitRest from '@octokit/rest';
+import OctokitRest, { AuthOAuthToken } from '@octokit/rest';
 import debugUtil from 'debug';
-import { parseRemote, IRemote } from 'want-js-utils.git';
+import { parseRemote } from 'want-js-utils.git';
 
 const debug = debugUtil('want:utils:github');
 
-const parseGithubApiConfig = ({ url }: IRemote) => ({
+const parseGithubApiConfig = (url: string) => ({
     githubApiUrl: url === 'github.com' ? 'api.github.com' : url,
     githubApiPath: url === 'github.com' ? '' : '/api/v3',
 });
 
+const maskToken = (token: string): string => {
+    return `${token.substr(0, 2)}${'*'.repeat(token.length - 4)}${token.substr(token.length - 3, 2)}`;
+};
+
+interface IPull {
+    owner: string;
+    number: number;
+}
+
 class GitHubApi {
-    private readonly api;
+    private readonly api: OctokitRest;
     private readonly url: string;
     private readonly org: string;
     private readonly repo: string;
 
-    constructor(remoteOriginUrl: IRemote, envTokenName = '') {
-        const { githubApiUrl, githubApiPath } = parseGithubApiConfig(remoteOriginUrl);
-        const github = new OctokitRest({
-            baseUrl: `https://${githubApiUrl}${githubApiPath || '/'}`,
-        });
+    constructor(remoteOriginUrl: string, envTokenName: string) {
+        const { url, organization, repository } = parseRemote(remoteOriginUrl);
+        const { githubApiUrl, githubApiPath } = parseGithubApiConfig(url);
+        const baseUrl = `https://${githubApiUrl}${githubApiPath || '/'}`;
 
-        if (envTokenName && process.env[envTokenName]) {
-            const authOptions = {
-                type: 'token',
-                token: process.env[envTokenName],
+        this.url = url;
+        this.org = organization;
+        this.repo = repository;
+        this.api = new OctokitRest({ baseUrl });
+
+        if (envTokenName && typeof process.env[envTokenName] !== 'undefined') {
+            const token = String(process.env[envTokenName]);
+            const auth: AuthOAuthToken = {
+                type: 'oauth',
+                token,
             };
 
-            github.authenticate(authOptions);
-            debug('Github api auth with options: %o', authOptions);
+            this.api.authenticate(auth);
+            debug(`Github api auth with oauth token "${maskToken(token)}"`);
         }
-
-        this.api = github;
     }
 
-    getApi() {
+    public getApi(): OctokitRest {
         if (!this.api) {
             throw new Error('Github API was not inited');
         }
@@ -42,10 +54,23 @@ class GitHubApi {
         return this.api;
     }
 
-    getPullRequestsNumbers() {
+    public async getPullRequestsNumbers(branch: string): Promise<IPull[]> {
+        debug('Start get pulls for %s', branch);
+
+        const response = await this.api.pulls.list({
+            state: 'all',
+            owner: this.org,
+            repo: this.repo,
+            head: `${this.org}:${branch}`,
+        });
+
+        return response.data.map((pull) => ({
+            owner: pull.base.repo.owner.login,
+            number: pull.number,
+        }));
     }
 
-    getBranchCompareUrl(branch: string): string {
+    public getBranchCompareUrl(branch: string): string {
         return `https://${this.url}/${this.org}/${this.repo}/compare/${branch}?expand=1`;
     }
 }

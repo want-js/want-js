@@ -4,7 +4,15 @@ import debugUtil from 'debug';
 
 const debug = debugUtil('want:utils:git');
 
-export const parseRemote = (url: string) => {
+export interface IRemote {
+    protocol: string;
+    username: string;
+    url: string;
+    organization: string;
+    repository: string;
+}
+
+export const parseRemote = (url: string): IRemote => {
     const commonRegExp = /(https:\/\/|git@)([a-z.\-_]+@)?([a-z.\-_]+)[:|/]([.A-Za-z0-9_\-]+)\/([.A-Za-z0-9_\-]+).git/;
     const parsedUrl = commonRegExp.exec(url);
 

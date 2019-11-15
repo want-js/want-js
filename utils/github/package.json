@@ -4,7 +4,8 @@
   "description": "Github api for use in want-js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/want-js/want-js/issues"
   },
-  "homepage": "https://github.com/want-js/want-js/tree/master/utils/github#readme"
+  "homepage": "https://github.com/want-js/want-js/tree/master/utils/github#readme",
+  "dependencies": {
+    "@octokit/rest": "16.35.0",
+    "debug": "4.1.1",
+    "want-js-utils.git": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/debug": "4.1.5"
+  }
 }

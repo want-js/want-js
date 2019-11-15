@@ -1,24 +1,21 @@
 import OctokitRest from '@octokit/rest';
 import debugUtil from 'debug';
-import { parseRemote } from 'want-js-utils.git';
+import { parseRemote, IRemote } from 'want-js-utils.git';
 
 const debug = debugUtil('want:utils:github');
 
-const parseGithubApiConfig = ({ url }) => ({
+const parseGithubApiConfig = ({ url }: IRemote) => ({
     githubApiUrl: url === 'github.com' ? 'api.github.com' : url,
     githubApiPath: url === 'github.com' ? '' : '/api/v3',
 });
 
 class GitHubApi {
     private readonly api;
+    private readonly url: string;
+    private readonly org: string;
+    private readonly repo: string;
 
-    private readonly url;
-
-    private readonly org;
-
-    private readonly repo;
-
-    constructor(remoteOriginUrl, envTokenName = '') {
+    constructor(remoteOriginUrl: IRemote, envTokenName = '') {
         const { githubApiUrl, githubApiPath } = parseGithubApiConfig(remoteOriginUrl);
         const github = new OctokitRest({
             baseUrl: `https://${githubApiUrl}${githubApiPath || '/'}`,

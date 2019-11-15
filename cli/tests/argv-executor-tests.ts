@@ -46,7 +46,7 @@ function getCommandLine(args) {
 }
 
 test('Check arg adding in properties', t => {
-    const ArgvExecutor = proxyquire('../src/argv-executor', {
+    const ArgvExecutor = proxyquire('../src/executor', {
         'command-line-commands': getCommandLine({
             command: 'a'
         })
@@ -64,7 +64,7 @@ test('Check lookup method', async t => {
         t.is(url, 'https://yandex.ru/a');
     };
 
-    const ArgvExecutor = proxyquire('../src/argv-executor', {
+    const ArgvExecutor = proxyquire('../src/executor', {
         'command-line-commands': getCommandLine({
             command: 'a'
         }),
@@ -90,7 +90,7 @@ test('Check help', t => {
         t.true(/c/.test(help), 'Error with c');
     };
 
-    const ArgvExecutor = proxyquire('../src/argv-executor', {
+    const ArgvExecutor = proxyquire('../src/executor', {
         'command-line-commands': getCommandLine({})
     });
 
@@ -109,7 +109,7 @@ test('Check help', async t => {
         console.log = originalConsoleLog;
     };
 
-    const ArgvExecutor = proxyquire('../src/argv-executor', {
+    const ArgvExecutor = proxyquire('../src/executor', {
         'command-line-commands': getCommandLine({
             argv: ['-h']
         })

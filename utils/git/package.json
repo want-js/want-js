@@ -1,0 +1,22 @@
+{
+  "name": "want-js-utils.git",
+  "version": "0.0.1",
+  "description": "Git utils for use in want-js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/want-js/want-js.git"
+  },
+  "author": {
+    "name": "Evgeniy Shershnev",
+    "email": "joshuan.chel@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/want-js/want-js/issues"
+  },
+  "homepage": "https://github.com/want-js/want-js/tree/master/utils/git#readme"
+}

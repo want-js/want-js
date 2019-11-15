@@ -1,7 +1,7 @@
 {
-  "name": "@want-js/plugin.anysite",
-  "version": "1.0.1",
-  "description": "Universal plugin for want-js for different servises which can be opened as https://somesite/{orgName}/{repoName}",
+  "name": "want-js-plugin.pull-requests",
+  "version": "1.1.0",
+  "description": "Plugin for want-js-helper which allows open pull-requests on Github.com",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/want-js/want-js/issues"
   },
-  "homepage": "https://github.com/want-js/want-js/tree/master/plugins/anysite#readme"
+  "homepage": "https://github.com/want-js/want-js/tree/master/plugins/pr#readme",
+  "dependencies": {
+    "debug": "4.1.1"
+  }
 }

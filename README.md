@@ -6,7 +6,7 @@ Install and write your config for quick opening services.
 
 For example:
 
-0. Install in project `npm i @want-js/cli --save` or `npm i @want-js/cli --global`.
+0. Install in project `npm i want-js-cli --save` or `npm i want-js-cli --global`.
 1. Create in your project or home directory file `.want-js.config.js`;
 2. Describe commands that you want to open in config, for example, you want to open Github's page of project;
 

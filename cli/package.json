@@ -1,5 +1,5 @@
 {
-  "name": "@want-js/cli",
+  "name": "want-js-cli",
   "version": "1.1.4",
   "description": "Tool for quick opening services",
   "main": "./src/index.js",
@@ -32,20 +32,21 @@
   },
   "homepage": "https://github.com/want-js/want-js#readme",
   "dependencies": {
-    "@octokit/rest": "^14.0.9",
-    "command-line-commands": "^2.0.1",
-    "command-line-usage": "^4.1.0",
-    "config-lookuper": "^1.1.1",
-    "git-remote-origin-url": "^2.0.0",
-    "lodash.keys": "^4.2.0",
-    "lodash.values": "^4.3.0",
-    "opn": "^5.2.0",
-    "simple-git": "^1.89.0"
+    "@octokit/rest": "16.28.7",
+    "command-line-commands": "2.0.1",
+    "command-line-usage": "6.0.2",
+    "config-lookuper": "1.1.1",
+    "debug": "4.1.1",
+    "git-remote-origin-url": "3.0.0",
+    "lodash.keys": "4.2.0",
+    "lodash.values": "4.3.0",
+    "opn": "6.0.0",
+    "simple-git": "1.124.0"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "nyc": "^11.4.1",
-    "proxyquire": "^1.8.0",
-    "sinon": "^4.5.0"
+    "ava": "2.2.0",
+    "nyc": "14.1.1",
+    "proxyquire": "2.1.3",
+    "sinon": "7.4.1"
   }
 }

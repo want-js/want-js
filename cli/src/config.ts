@@ -28,7 +28,7 @@ export const getConfig = async () => {
     const aliases = config.commands.map((command) => {
         const currentAliases = config.commandParams[command].aliases;
 
-        currentAliases.forEach(alias => {
+        currentAliases.forEach((alias) => {
             config.aliases[alias] = command;
         });
 

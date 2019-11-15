@@ -17,7 +17,7 @@ export const parseRemote = (url: string) => {
         username: (parsedUrl[2] || '').replace('@', ''),
         url: parsedUrl[3],
         organization: parsedUrl[4],
-        repository: parsedUrl[5]
+        repository: parsedUrl[5],
     };
 };
 
@@ -52,5 +52,5 @@ export const getParsedRemoteUrls = async () => {
 
     debug('Remote urls: %o', remotes);
 
-    return remotes.map(remote => parseRemote(remote.refs.push));
+    return remotes.map((remote) => parseRemote(remote.refs.push));
 };

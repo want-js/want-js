@@ -13,7 +13,9 @@ const opnOptions = { wait: false };
 
 class Executor {
     private readonly command;
+
     private readonly argv;
+
     private readonly config;
 
     constructor(config) {
@@ -43,7 +45,7 @@ class Executor {
 
         const { commandParams } = this.config;
 
-        let commandCfg = commandParams[this.command];
+        const commandCfg = commandParams[this.command];
         if (!commandCfg) {
             throw new HelperError('There is no cfg for command.');
         }
@@ -60,7 +62,7 @@ class Executor {
         if (typeof url === 'string') {
             opn(url, opnOptions);
         } else if (Array.isArray(url)) {
-            url.forEach(elem => {
+            url.forEach((elem) => {
                 opn(elem, opnOptions);
             });
         } else {
@@ -86,16 +88,16 @@ class Executor {
         const sections = [
             {
                 header: 'Want-open-helper',
-                content: 'Tool for quick opening services like Github, Travis and etc. from local project directory.'
+                content: 'Tool for quick opening services like Github, Travis and etc. from local project directory.',
             },
             {
                 header: 'Synopsis',
-                content: '$ want <command> | --help'
+                content: '$ want <command> | --help',
             },
             {
                 header: 'Command List',
-                content: commandList
-            }
+                content: commandList,
+            },
         ];
 
         const usage = commandLineUsage(sections);

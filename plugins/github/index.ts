@@ -14,7 +14,7 @@ const pr = async (config) => {
     gitApi.initGithubApi(
         githubApiUrl,
         githubApiPath,
-        process.env.GITHUB_OAUTH_TOKEN
+        process.env.GITHUB_OAUTH_TOKEN,
     );
 
     debug('Github api was inited');
@@ -24,9 +24,7 @@ const pr = async (config) => {
     debug('PullNumbers %O', pullNumbers);
 
     if (pullNumbers.length) {
-        return pullNumbers.map(function (elem) {
-            return `https://${githubParsedUrl.url}/${elem.owner}/${githubParsedUrl.repository}/pull/${elem.number}`;
-        });
+        return pullNumbers.map((elem) => `https://${githubParsedUrl.url}/${elem.owner}/${githubParsedUrl.repository}/pull/${elem.number}`);
     }
 
     return `https://${githubParsedUrl.url}/${githubParsedUrl.organization}/${githubParsedUrl.repository}/compare/${branch}?expand=1`;

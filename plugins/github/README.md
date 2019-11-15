@@ -1,4 +1,4 @@
-# want-js-plugin.pull-requests
+# want-js-plugin.github
 Plugin for want-js which allows open pull-requests on Github.com
 
 ## Usage
@@ -12,13 +12,13 @@ $ npm install want-js-cli --global
 2) Install current plugin global
 
 ```bash
-$ npm install want-js-plugin.pull-requests --global
+$ npm install want-js-plugin.github --global
 ```
 
 or in some project
 
 ```bash
-$ npm install want-js-plugin.pull-requests --save-dev
+$ npm install want-js-plugin.github --save-dev
 ```
 
 3) If you use github.com, then simply enter:
@@ -54,7 +54,7 @@ Or you can create you own redefined plugin, where will `.want-js.config.js`.
 
 
 ```js
-const wantJSCfg = require('want-js-plugin.pull-requests/.want-js.config');
+const wantJSCfg = require('want-js-plugin.github/.want-js.config');
 
 module.exports = {
     commandParams: {

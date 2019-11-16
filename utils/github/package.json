@@ -32,5 +32,8 @@
     "*.js",
     "*.js.map",
     "*.d.ts"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
 }

@@ -10,6 +10,6 @@
     "forceConsistentCasingInFileNames": true
   },
   "exclude": [
-    "**/tests"
+    "**/__tests__"
   ]
 }

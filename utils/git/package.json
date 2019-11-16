@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "find . -type f -name \"*.d.ts\" -delete -o -name \"*.js\" -delete -o -name \"*.js.map\" -delete",
+    "clean": "find lib -type f -name \"*.d.ts\" -delete -o -name \"*.js\" -delete -o -name \"*.js.map\" -delete",
     "prepare": "npm run clean && npm run build"
   },
   "repository": {

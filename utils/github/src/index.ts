@@ -70,8 +70,8 @@ class GitHubApi {
         }));
     }
 
-    public getBranchCompareUrl(branch: string): string {
-        return `https://${this.url}/${this.org}/${this.repo}/compare/${branch}?expand=1`;
+    public getUrlPrefix(): string {
+        return `https://${this.url}/${this.org}/${this.repo}`;
     }
 }
 

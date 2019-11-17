@@ -1,6 +1,6 @@
 {
   "name": "want-js-utils.github",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Github api for use in want-js",
   "main": "dist/index.js",
   "scripts": {

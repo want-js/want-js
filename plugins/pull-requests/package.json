@@ -1,22 +1,36 @@
 {
   "name": "want-js-plugin.pull-requests",
-  "version": "1.1.0",
+  "version": "0.0.1",
   "description": "Plugin for want-js-helper which allows open pull-requests on Github.com",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepare": "npm run clean && npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/want-js/want-js.git"
   },
   "author": {
-    "name": "Nadezhda Grin",
-    "email": "grin.nadezhda@gmail.com"
+    "name": "Evgeniy Shershnev",
+    "email": "joshuan.chel@gmail.com"
   },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/want-js/want-js/issues"
   },
-  "homepage": "https://github.com/want-js/want-js/tree/master/plugins/pr#readme",
+  "homepage": "https://github.com/want-js/want-js/tree/master/plugins/pull-requests#readme",
   "dependencies": {
-    "debug": "4.1.1"
-  }
+    "debug": "4.1.1",
+    "typescript": "3.7.2",
+    "want-js-utils.git": "0.0.4",
+    "want-js-utils.github": "0.0.6"
+  },
+  "devDependencies": {
+    "@types/debug": "4.1.5"
+  },
+  "files": [
+    "dist"
+  ]
 }

@@ -1,11 +1,11 @@
 {
   "name": "want-js-utils.github",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Github api for use in want-js",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "find lib -type f -name \"*.d.ts\" -delete -o -name \"*.js\" -delete -o -name \"*.js.map\" -delete",
+    "clean": "rm -rf dist",
     "prepare": "npm run clean && npm run build"
   },
   "repository": {
@@ -24,15 +24,13 @@
   "dependencies": {
     "@octokit/rest": "16.35.0",
     "debug": "4.1.1",
-    "want-js-utils.git": "0.0.2"
+    "want-js-utils.git": "0.0.4"
   },
   "devDependencies": {
     "@types/debug": "4.1.5"
   },
   "files": [
-    "lib/*.js",
-    "lib/*.js.map",
-    "lib/*.d.ts"
+    "dist"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

@@ -1,6 +1,8 @@
 import keys from 'lodash.keys';
+// @ts-ignore
 import Lookuper from 'config-lookuper';
 import debugUtil from 'debug';
+import {IConfig} from "./executor";
 
 const debug = debugUtil('want:cli:config');
 const CONFIG_NAME = '.want-js.config.js';
@@ -20,7 +22,7 @@ const getLookuperConfig = async () => {
 };
 
 export const getConfig = async () => {
-    const config = await getLookuperConfig();
+    const config: IConfig = await getLookuperConfig();
 
     config.commands = keys(config.commandParams);
     config.aliases = {};

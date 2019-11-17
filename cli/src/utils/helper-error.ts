@@ -1,7 +1,7 @@
 class HelperError extends Error {
     public type: string;
 
-    constructor(message) {
+    constructor(message?: string) {
         super(message);
         this.type = 'HelperError';
     }

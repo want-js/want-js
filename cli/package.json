@@ -1,19 +1,18 @@
 {
   "name": "want-js-cli",
-  "version": "1.1.4",
+  "version": "0.0.1",
   "description": "Tool for quick opening services",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "bin": {
-    "want": "./src/index.js"
+    "want": "./dist/index.js"
   },
   "files": [
-    "src",
-    "libs"
+    "dist"
   ],
   "scripts": {
-    "test": "ava -v ./tests",
-    "test:f": "ava -v ./tests/git-api-tests.js",
-    "coverage": "nyc --reporter=html npm run test"
+    "build": "tsc",
+    "clean": "rm -rf lib",
+    "prepare": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
@@ -32,21 +31,21 @@
   },
   "homepage": "https://github.com/want-js/want-js#readme",
   "dependencies": {
-    "@octokit/rest": "16.28.7",
     "command-line-commands": "2.0.1",
     "command-line-usage": "6.0.2",
     "config-lookuper": "1.1.1",
     "debug": "4.1.1",
-    "git-remote-origin-url": "3.0.0",
     "lodash.keys": "4.2.0",
     "lodash.values": "4.3.0",
-    "opn": "6.0.0",
-    "simple-git": "1.124.0"
+    "opn": "6.0.0"
   },
   "devDependencies": {
-    "ava": "2.2.0",
-    "nyc": "14.1.1",
-    "proxyquire": "2.1.3",
-    "sinon": "7.4.1"
+    "@types/command-line-commands": "2.0.1",
+    "@types/command-line-usage": "5.0.1",
+    "@types/debug": "4.1.5",
+    "@types/lodash.keys": "4.2.6",
+    "@types/lodash.values": "4.3.6",
+    "@types/opn": "5.5.0",
+    "typescript": "3.7.2"
   }
 }

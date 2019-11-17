@@ -4,10 +4,11 @@ import { getConfig } from './config';
 import Executor from './executor';
 
 (async () => {
-    let executor;
+    let executor: Executor;
     const config = await getConfig();
 
-    const logError = (e) => {
+    const logError = (e: Error) => {
+        // @ts-ignore
         if (e.type === 'HelperError') {
             console.error('\x1b[31m', e.message);
         } else {

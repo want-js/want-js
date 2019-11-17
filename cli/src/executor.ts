@@ -1,3 +1,4 @@
+// @ts-ignore
 import opn from 'opn';
 import commandLineCommands from 'command-line-commands';
 import commandLineUsage from 'command-line-usage';
@@ -5,28 +6,37 @@ import values from 'lodash.values';
 import keys from 'lodash.keys';
 import debugUtil from 'debug';
 
-import gatherSummary from '../libs/gather-summary';
-import HelperError from '../libs/helper-error';
+import gatherSummary, { ICommandParams } from './utils/gather-summary';
+import HelperError from './utils/helper-error';
 
 const debug = debugUtil('want:cli:exec');
 const opnOptions = { wait: false };
 
+export interface IConfig {
+    commands: string[];
+    commandParams: ICommandParams;
+    aliases: {
+        [key: string]: string;
+    };
+}
+
 class Executor {
-    private readonly command;
-
+    private readonly command: string;
+    // @ts-ignore
     private readonly argv;
+    private readonly config: IConfig;
 
-    private readonly config;
-
-    constructor(config) {
+    constructor(config: IConfig) {
         debug('ArgvExecutor init with config: %O', config);
 
+        // @ts-ignore
         config.commands.push(null);
 
         const { command, argv } = commandLineCommands(config.commands);
 
         config.commands.pop();
 
+        // @ts-ignore
         this.command = config.aliases[command] || command;
         this.argv = argv;
         this.config = config;
@@ -45,6 +55,7 @@ class Executor {
 
         const { commandParams } = this.config;
 
+        // @ts-ignore
         const commandCfg = commandParams[this.command];
         if (!commandCfg) {
             throw new HelperError('There is no cfg for command.');
@@ -56,7 +67,7 @@ class Executor {
         this.open(urls);
     }
 
-    private open(url) {
+    private open(url: string | string[]) {
         debug('Try to open url: %o', url);
 
         if (typeof url === 'string') {

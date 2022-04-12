@@ -24,7 +24,7 @@
   "dependencies": {
     "debug": "4.1.1",
     "git-remote-origin-url": "3.0.0",
-    "simple-git": "1.126.0",
+    "simple-git": "3.5.0",
     "typescript": "3.7.2"
   },
   "devDependencies": {
